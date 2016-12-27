@@ -1,0 +1,18 @@
+---
+resources:
+- name: dunk-ios-git
+  type: git
+  source:
+    uri: https://github.com/naoyashiga/Dunk.git
+
+jobs:
+  - EarlGrey-UI-Tests
+
+jobs:
+- name: EarlGrey-UI-Tests
+  public: true
+  serial: true
+  plan:
+  - get: dunk-ios-git
+  - task: run-ui-tests
+    file: task.yml
